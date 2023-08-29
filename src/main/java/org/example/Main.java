@@ -1,6 +1,7 @@
 package org.example;
 
 import org.example.entities.User;
+import org.example.predicates.StringConverter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +37,9 @@ public class Main {
                 .collect(Collectors.toList());
 
         System.out.println(newUsers);
+
+        var list = StringConverter.filterString(users, userPred -> userPred.getName().startsWith("L"));
+        System.out.println(list);
 
 
     }
