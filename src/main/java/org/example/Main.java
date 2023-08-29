@@ -30,13 +30,17 @@ public class Main {
 
         Predicate<User> lessThanten = user -> user.getId() < 10;
         Predicate<String> startsWithE = str -> str.startsWith("E");
+        Predicate<User> startsWithEuser = str -> str.getName().startsWith("E");
         System.out.println(lessThanten.test(user1));
 
         List<User> newUsers = users.stream()
-                .filter( x -> x.getName().startsWith("E"))
+//                .filter( x -> x.getName().startsWith("E"))
+                .filter(startsWithEuser)
                 .collect(Collectors.toList());
 
         System.out.println(newUsers);
+
+
 
         var list = StringConverter.filterString(users, userPred -> userPred.getName().startsWith("L"));
         System.out.println(list);
