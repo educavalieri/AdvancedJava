@@ -1,6 +1,7 @@
 package org.example;
 
 import org.example.entities.User;
+import org.example.predicates.DoIt;
 import org.example.predicates.StringConverter;
 
 import java.util.ArrayList;
@@ -40,11 +41,26 @@ public class Main {
 
         System.out.println(newUsers);
 
-
-
         var list = StringConverter.filterString(users, userPred -> userPred.getName().startsWith("L"));
         System.out.println(list);
 
+
+        // Stream
+
+        var users2 = users.stream()
+                .filter(user -> user.getId() < 3)
+                .map(user -> user.getName().toUpperCase())
+                .collect(Collectors.toList());
+
+        System.out.println(users2);;
+
+        DoIt<User> doString = x -> x.getName().startsWith("E");
+
+        users.forEach( user -> {
+            if(doString.doo(user)){
+                System.out.println(user);
+            }
+        });
 
     }
 }
