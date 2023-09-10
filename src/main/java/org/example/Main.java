@@ -3,14 +3,18 @@ package org.example;
 import org.example.entities.User;
 import org.example.predicates.DoIt;
 import org.example.predicates.StringConverter;
+import org.example.util.Base64Converter;
 
+import javax.sound.midi.Soundbank;
+import java.io.UnsupportedEncodingException;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws UnsupportedEncodingException {
 
         User user1 = new User(1L, "Eduardo");
         User user2 = new User(2L, "Camila");
@@ -61,6 +65,13 @@ public class Main {
                 System.out.println(user);
             }
         });
+
+        //Base 64
+
+        String teste = Base64Converter.encode("teste");
+        System.out.println(teste);
+
+        System.out.println(Base64Converter.decode(teste));
 
     }
 }
