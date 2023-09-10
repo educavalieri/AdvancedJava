@@ -10,6 +10,7 @@ import java.io.UnsupportedEncodingException;
 import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -27,7 +28,7 @@ public class Main {
         users.add(user3);
         users.add(user4);
 
-        users.sort( (u1, u2)  -> u1.getId().compareTo(u2.getId()));
+/*        users.sort( (u1, u2)  -> u1.getId().compareTo(u2.getId()));
 
         users.forEach( user -> {
             System.out.printf("The user id is " + user.getId() + " and the name" + user.getName() + "/n");
@@ -67,11 +68,21 @@ public class Main {
         });
 
         //Base 64
-
         String teste = Base64Converter.encode("teste");
         System.out.println(teste);
 
-        System.out.println(Base64Converter.decode(teste));
+        System.out.println(Base64Converter.decode(teste));*/
+
+
+        //Optional
+
+        Optional<String> teste = Optional.ofNullable("teste");
+        System.out.println(teste.isPresent() ? teste.get() : "not present");
+
+        Optional<String> teste2 = Optional.ofNullable(null);
+//        Optional<String> teste2 = Optional.ofNullable("teste3");
+        System.out.println(teste2.orElse("teste2"));
+
 
     }
 }
