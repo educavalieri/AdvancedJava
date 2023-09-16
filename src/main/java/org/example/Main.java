@@ -4,8 +4,8 @@ import org.example.entities.User;
 import org.example.predicates.DoIt;
 import org.example.predicates.StringConverter;
 import org.example.util.Base64Converter;
-
 import javax.sound.midi.Soundbank;
+import javax.swing.text.html.Option;
 import java.io.UnsupportedEncodingException;
 import java.sql.SQLOutput;
 import java.util.ArrayList;
@@ -83,6 +83,11 @@ public class Main {
 //        Optional<String> teste2 = Optional.ofNullable("teste3");
         System.out.println(teste2.orElse("teste2"));
 
+        Optional<User> user5 = Optional.ofNullable(new User(5L, null));
+//        Optional<User> user5 = Optional.ofNullable(null);
+        System.out.println(user5.orElse(user4));
+        System.out.println(user5
+                .map(User::getName).orElse("teste"));
 
     }
 }
